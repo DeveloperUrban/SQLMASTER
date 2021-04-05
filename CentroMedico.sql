@@ -1,3 +1,5 @@
+use CENTROMEDICO
+
 Create table tbl_Paciente(
 idPaciente int primary key not null,
 nombre varchar(50),
@@ -38,6 +40,10 @@ observacion varchar(300)
 constraint PK_idTurno primary key(idTurno)
 );
 
+create table tbl_TurnoEstado(
+idestado int identity(1,1) primary key not null,
+descripcion varchar(300)
+);
 
 create table tbl_TurnoPaciente(
 idTurno int not null,
@@ -95,14 +101,18 @@ descripcion varchar(100) not null
 );
 
 
+--Comando para reiniciar la cuenta de un incremental del identity
+--primero se debe eliminar todos los registros de la tabla
+use CENTROMEDICO
+create table tabla1(
+idcodigo int identity primary key not null,
+descripcion varchar(60)
+);
+
+select * from tabla1;
+insert into tabla1 values('Hola')
+ delete from tabla1
 
 
-
-
-
-
-
-
-
-
+dbcc CHECKIDENT('tabla1',RESEED,0);
 
