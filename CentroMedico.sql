@@ -112,7 +112,40 @@ descripcion varchar(60)
 select * from tabla1;
 insert into tabla1 values('Hola')
  delete from tabla1
-
+  
 
 dbcc CHECKIDENT('tabla1',RESEED,0);
+
+
+--- Haciendo Uso del comando Insert
+select * from tbl_Paciente
+
+--Hacemos la insercion de datos a tabla pais
+select * from tbl_Pais
+insert into tbl_Pais 
+values
+(100,'Peru'),
+(101,'Chile'),
+(102,'Argentina'),
+(103,'Brasil'),
+(104,'Colombia'),
+(105,'Ecauador');
+
+-- Hacemos la insercion de datos en la tabla Paciente
+select * from tbl_Paciente
+insert into tbl_Paciente 
+values
+(200,'Avimael','Gervacio Requena','17/07/1995','Huacho',100,'921873007','avimael95@gmail.com','Ninguna'),
+(201,'Juan','Gamarra Solis','17/07/1996','Lima',100,'921873007','Juan5@gmail.com','Ninguna'),
+(202,'Carlos','Perez Requena','17/07/1997','Barranca',102,'921873007','Carlos97@gmail.com','Ninguna'),
+(203,'Navila','Quiñones Vasquez','17/07/1998','Cajamarca',103,'921873007','navila98@gmail.com','Ninguna'),
+(204,'Jhadira','Suni Maguiña','17/07/1999','Puno',101,'921873007','Jhadira99@gmail.com','Ninguna'),
+(205,'Licet','Inocente Gamarra','17/07/1992','Ucayali',104,'921873007','Licet92@gmail.com','Ninguna');
+
+
+
+
+
+
+
 
