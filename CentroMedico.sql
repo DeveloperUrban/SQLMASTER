@@ -129,7 +129,9 @@ values
 (102,'Argentina'),
 (103,'Brasil'),
 (104,'Colombia'),
-(105,'Ecauador');
+(105,'Ecuador');
+
+update tbl_Pais SET pais='Ecuador' where idPais=105
 
 -- Hacemos la insercion de datos en la tabla Paciente
 select * from tbl_Paciente
@@ -140,8 +142,27 @@ values
 (202,'Carlos','Perez Requena','17/07/1997','Barranca',102,'921873007','Carlos97@gmail.com','Ninguna'),
 (203,'Navila','Quiñones Vasquez','17/07/1998','Cajamarca',103,'921873007','navila98@gmail.com','Ninguna'),
 (204,'Jhadira','Suni Maguiña','17/07/1999','Puno',101,'921873007','Jhadira99@gmail.com','Ninguna'),
-(205,'Licet','Inocente Gamarra','17/07/1992','Ucayali',104,'921873007','Licet92@gmail.com','Ninguna');
+(205,'Licet','Inocente Gamarra','17/07/1992','Ucayali',104,'921873007','Licet92@gmail.com','Ninguna'),
+(206,'Rosita','Orbegozo Diaz','17/07/1996','Huacho',100,'921873007','Rosita96@gmail.com','Ninguna');
 
+
+----HACIENDO USO DE LAS CLAUSULAS SQL------------------
+---======CLAUSULA WHERE: Nos permite filtrar de acuerdo a la condicion que le podemos facilitar
+--1.SELECCIONAR LOS PACIENTES CON EN SU NOMBRE CONTENGAN LA LETRA "A"
+SELECT * FROM tbl_Paciente WHERE nombre like '%a'
+---2.-SELECCIONAR A LAS PACIENTES QUE TENGAN 25 AÑOS CON SUS RESPECTIVOS PAISES
+SELECT p.nombre,p.apellido,pa.pais, DATEDIFF(YEAR,fNacimiento,GETDATE()) as Edad 
+FROM tbl_Paciente p
+INNER JOIN tbl_Pais pa ON p.idPais=pa.idPais
+WHERE DATEDIFF(YEAR,fNacimiento,GETDATE())=25
+
+---HACIENDO USO DE LA CLASULA TOP -------------------
+---TOP:Nos permite mostrar una cierta cantidad de registros 
+select * from tbl_Paciente
+SELECT TOP 3 nombre,apellido,domicilio,telefono FROM tbl_Paciente
+
+
+ 
 
 
 
