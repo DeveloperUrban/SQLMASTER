@@ -190,7 +190,23 @@ select Top 3 * from tbl_Paciente
 SELECT * FROM tbl_Turno
 select TOP 1 * from tbl_Turno order by fechaTurno desc
 
+---Haciendo uso de la clausuala ORDER BY
+--Nota: Está clausuala nos permite ordenar de dos maneras ascendentemente y Descendentemente
+--Ejercicio: Se pide ordenar a los paciendes alfabeticamente por su nombre
+select * from tbl_Paciente order by nombre asc
 
+/*
+  CLAUSULA: DISTINCT
+  Nota: La claúsula DISTINCT nos devuelve valores únicos. En una tabla, una columna puede contener valores duplicados; 
+  y algunas veces sólo se necesita un listado de los valores diferentes.
+*/
+select * from tbl_Paciente
+
+insert into tbl_Paciente 
+values 
+(210,'Avimael','Gervacio Requena','10/06/1993','Huacho',100,'921876004','avimael97@gmail.com','En falta');
+
+select distinct nombre,apellido from tbl_Paciente
 
 
 
