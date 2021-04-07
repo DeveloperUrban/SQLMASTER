@@ -145,6 +145,28 @@ values
 (205,'Licet','Inocente Gamarra','17/07/1992','Ucayali',104,'921873007','Licet92@gmail.com','Ninguna'),
 (206,'Rosita','Orbegozo Diaz','17/07/1996','Huacho',100,'921873007','Rosita96@gmail.com','Ninguna');
 
+--Hacemos la inserción de datos tabla Turno Estado-------------
+select * from tbl_TurnoEstado
+insert into tbl_TurnoEstado 
+values
+('Nueva'),
+('Sin Confirmar'),
+('Confirmada'),
+('No se presentó'),
+('Cancelada/Reagendada');
+---CHECKIDENT(([NombreDeTuTabla], RESEED,400) Con este vamos a decirle a sql que el campo va iniciar en 400
+dbcc CHECKIDENT('tbl_TurnoEstado',RESEED,400)
+
+---Hacemos la inserción de datos a la tabla Turno
+select * from tbl_Turno
+dbcc CHECKIDENT('tbl_Turno',RESEED,500)
+Insert into tbl_Turno
+values
+('07/12/2019',404,'Sin observacion'),
+('07/04/2020',402,'Sin observacion'),
+('07/04/2020',402,'Sin observacion'),
+('07/04/2020',401,'Sin observacion');
+
 
 ----HACIENDO USO DE LAS CLAUSULAS SQL------------------
 ---======CLAUSULA WHERE: Nos permite filtrar de acuerdo a la condicion que le podemos facilitar
@@ -160,6 +182,16 @@ WHERE DATEDIFF(YEAR,fNacimiento,GETDATE())=25
 ---TOP:Nos permite mostrar una cierta cantidad de registros 
 select * from tbl_Paciente
 SELECT TOP 3 nombre,apellido,domicilio,telefono FROM tbl_Paciente
+---Se puede colocar los campos o el *(Todo el registro) para decirle que campos queremos que se muestre
+select Top 3 * from tbl_Paciente
+
+--SE PIDE MOSTRAR EL ÚLTIMO TURNO O EL TURNO MÁS RECIENTE
+--Haremos uso de la clausula TOP
+SELECT * FROM tbl_Turno
+select TOP 1 * from tbl_Turno order by fechaTurno desc
+
+
+
 
 
  
