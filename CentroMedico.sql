@@ -208,13 +208,19 @@ values
 
 select distinct nombre,apellido from tbl_Paciente
 
+/*
+CLAUSULA: GROUP BY
+Nota: La función GROUP BY se utiliza para juntar filas de resultados que coincidan en el valor de alguna columna seleccionada
+*/
 
+SELECT * FROM tbl_Paciente
+SELECT * FROM tbl_Concepto
 
- 
-
-
-
-
+INSERT INTO tbl_Concepto VALUES
+('Cosulta Medica'),
+('Cirugia'),
+('Ortodoncia'),
+('Oftamologia');
 
 
 
