@@ -181,13 +181,18 @@ select * from tbl_Pago
 dbcc CHECKIDENT('tbl_Pago',RESEED,600)
 INSERT INTO tbl_Pago
 VALUES
-(600,1,'04/05/2014',200,400,'pago por atencion'),
-(),
-(),
-();
+(1,'04/05/2021',300,2,''),
+(1,'04/05/2021',500,3,''),
+(2,'04/05/2021',600,2,''),
+(3,'04/05/2021',700,3,''),
+(3,'04/05/2021',800,1,''),
+(4,'04/05/2021',900,2,'');
+
+--ME PERMITE VER EL TIPO DE DATO QUE TIENE LA TABLA-----------
 SELECT *
 FROM Information_Schema.Columns
 WHERE TABLE_NAME = 'tbl_Pago'
+
 ----HACIENDO USO DE LAS CLAUSULAS SQL------------------
 ---======CLAUSULA WHERE: Nos permite filtrar de acuerdo a la condicion que le podemos facilitar
 --1.SELECCIONAR LOS PACIENTES CON EN SU NOMBRE CONTENGAN LA LETRA "A"
@@ -233,9 +238,17 @@ CLAUSULA: GROUP BY
 Nota: La función GROUP BY se utiliza para juntar filas de resultados que coincidan en el valor de alguna columna seleccionada
 */
 
-SELECT * FROM tbl_Paciente
-SELECT * FROM tbl_Concepto
+--Se pide calcular el monto total de pago en una derminada fecha y el concepto por lo que fue pagado
+select * from tbl_Pago
+select concepto,SUM(monto) as Total From tbl_Pago
+group by concepto
 
+-- se pide agrupar todos los registro por apellidos
+select * from tbl_Paciente
+select nombre from tbl_Paciente group by nombre
+
+--Queremos contar la cantidad de registro que tiene la tabla paciente agrúpados por nombre
+select nombre,COUNT(nombre) as cantidad from tbl_Paciente group by nombre
 
 
 
