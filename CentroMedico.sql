@@ -167,7 +167,27 @@ values
 ('07/04/2020',402,'Sin observacion'),
 ('07/04/2020',401,'Sin observacion');
 
+---Hacemos la inserción de datos a la tabla Concepto
 
+INSERT INTO tbl_Concepto VALUES
+('Cosulta Medica'),
+('Cirugia'),
+('Ortodoncia'),
+('Oftamologia');
+
+--Hacemos la insercion de datos a la tabla pagos
+SELECT * FROM tbl_Concepto
+select * from tbl_Pago
+dbcc CHECKIDENT('tbl_Pago',RESEED,600)
+INSERT INTO tbl_Pago
+VALUES
+(600,1,'04/05/2014',200,400,'pago por atencion'),
+(),
+(),
+();
+SELECT *
+FROM Information_Schema.Columns
+WHERE TABLE_NAME = 'tbl_Pago'
 ----HACIENDO USO DE LAS CLAUSULAS SQL------------------
 ---======CLAUSULA WHERE: Nos permite filtrar de acuerdo a la condicion que le podemos facilitar
 --1.SELECCIONAR LOS PACIENTES CON EN SU NOMBRE CONTENGAN LA LETRA "A"
@@ -216,11 +236,6 @@ Nota: La función GROUP BY se utiliza para juntar filas de resultados que coincid
 SELECT * FROM tbl_Paciente
 SELECT * FROM tbl_Concepto
 
-INSERT INTO tbl_Concepto VALUES
-('Cosulta Medica'),
-('Cirugia'),
-('Ortodoncia'),
-('Oftamologia');
 
 
 
